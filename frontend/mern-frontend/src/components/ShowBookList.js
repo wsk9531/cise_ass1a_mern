@@ -32,7 +32,7 @@ class ShowBookList extends Component {
     let bookList;
 
     if(!books) {
-      bookList = "there is no book record!";
+      bookList = "there is no book recored!";
     } else {
       bookList = books.map((book, k) =>
         <BookCard book={book} key={k} />
