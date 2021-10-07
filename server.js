@@ -15,7 +15,7 @@ connectDB();
 app.use(cors({ origin: true, credentials: true }));
 
 // Init middlware
-app.use(express.json({ extended: false }));
+//app.use(express.json({ extended: false }));
 
 const port = process.env.PORT || 8082;
 
@@ -34,6 +34,7 @@ if (process.env.NODE_ENV == "PRODUCTION") {
 } else {
   app.get("/", (req, res) => res.send("Hello World!"));
 }
+
 // Use Routes & Mount router on the app
 app.use("/api/books", router);
 
