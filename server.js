@@ -15,7 +15,7 @@ connectDB();
 app.use(cors({ origin: true, credentials: true }));
 
 // Init middlware
-//app.use(express.json({ extended: false }));
+app.use(express.json({ extended: false }));
 
 const port = process.env.PORT || 8082;
 
