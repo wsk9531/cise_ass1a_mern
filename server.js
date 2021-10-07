@@ -17,22 +17,24 @@ app.use(cors({ origin: true, credentials: true }));
 // Init middlware
 app.use(express.json({ extended: false }));
 
-app.get("/", (req, res) => res.send("Hello World!"));
-
-// Use Routes & Mount router on the app
-app.use("/api/books", router);
-
 const port = process.env.PORT || 8082;
 
 // Build for Heroku
-app.use(
-  express.static(path.resolve(__dirname, "./frontend/mern-frontend/build"))
-);
-// Step 2:
-app.get("*", function (request, response) {
-  response.sendFile(
-    path.resolve(__dirname, "./frontend/mern-frontend/build", "index.html")
+if (process.env.NODE_ENV == "PRODUCTION") {
+  app.use(
+    express.static(path.resolve(__dirname, "./frontend/mern-frontend/build"))
   );
-});
+
+  // Step 2:
+  app.get("*", function (request, response) {
+    response.sendFile(
+      path.resolve(__dirname, "./frontend/mern-frontend/build", "index.html")
+    );
+  });
+} else {
+  app.get("/", (req, res) => res.send("Hello World!"));
+}
+// Use Routes & Mount router on the app
+app.use("/api/books", router);
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
