@@ -19,6 +19,9 @@ app.use(cors({ origin: true, credentials: true }));
 
 const port = process.env.PORT || 8082;
 
+// Use Routes & Mount router on the app
+app.use("/api/books", router);
+
 // Build for Heroku
 if (process.env.NODE_ENV == "PRODUCTION") {
   app.use(
@@ -35,7 +38,6 @@ if (process.env.NODE_ENV == "PRODUCTION") {
   app.get("/", (req, res) => res.send("Hello World!"));
 }
 
-// Use Routes & Mount router on the app
-app.use("/api/books", router);
+
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
