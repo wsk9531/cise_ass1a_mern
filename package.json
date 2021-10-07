@@ -10,7 +10,7 @@
     "heroku-postbuild": "npm run install-client && npm run build",
     "server": "node server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix ./frontend/mern-frontend\"",
-    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix ./frontend/mern-frontend\""
+    "start": "concurrently --kill-others-on-fail \"npm run server\""
   },
   "repository": {
     "type": "git",
