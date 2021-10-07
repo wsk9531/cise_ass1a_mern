@@ -8,7 +8,7 @@
     "build": "cd ./frontend/mern-frontend && npm run build",
     "install-client": "cd ./frontend/mern-frontend && npm install",
     "heroku-postbuild": "npm run install-client && npm run build",
-    "server": "nodemon server.js",
+    "server": "node server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix ./frontend/mern-frontend\"",
     "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix ./frontend/mern-frontend\""
   },
