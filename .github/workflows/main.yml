@@ -16,4 +16,4 @@ jobs:
           heroku_app_name: "cise-ass1a-w3-mern" #Must be unique in Heroku
           heroku_email: "wsk9531@autuni.ac.nz"
           appdir: "cise_ass1a_mern" # <- This will point to the api folder in your project
-          procfile: cise_ass1a_mern/Procfile
+          procfile: ../Procfile
